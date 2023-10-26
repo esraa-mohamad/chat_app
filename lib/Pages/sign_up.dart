@@ -69,7 +69,7 @@ bool isAsyncCall=false;
                   hintText: 'Email',
                   hintColor:Colors.white,
                   hintSize: 20,
-                    onChange: (data)
+                  onChange: (data)
                     {
                       email =data;
                     }
@@ -99,15 +99,15 @@ bool isAsyncCall=false;
                         try{
                           await registerAccount();
                           // ignore: use_build_context_synchronously
-                          showSnackBar(context, 'Register is succeed');
+                          showSnackBar(context, 'Register is succeed' , color: Colors.green);
                           // ignore: use_build_context_synchronously
                           Navigator.pushNamed(context, 'ChatPage',arguments: email);
                         }on FirebaseAuthException catch (e)
                         {
                           if (e.code == 'weak-password') {
-                            showSnackBar(context,'The password provided is too weak.');
+                            showSnackBar(context,'The password provided is too weak.' ,color: Colors.red);
                           } else if (e.code == 'email-already-in-use') {
-                            showSnackBar(context, 'The account already exists for that email.');
+                            showSnackBar(context, 'The account already exists for that email.' , color: Colors.red);
                           }
                         }
                         isAsyncCall=false;

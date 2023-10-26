@@ -1,6 +1,8 @@
+import 'package:chat_app/Pages/sign_up.dart';
 import 'package:chat_app/componants/componants.dart';
 import 'package:chat_app/componants/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_app/helper/show_snack_bar.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -101,15 +103,15 @@ class _SignInState extends State<SignIn> {
                      try{
                        await logInAccount();
                         // ignore: use_build_context_synchronously
-                        showSnackBar(context, 'Login is succeed');
+                        showSnackBar(context, 'Login is succeed' , color: Colors.green);
                         // ignore: use_build_context_synchronously
                         Navigator.pushNamed(context, 'ChatPage',arguments: email);
                      }on FirebaseAuthException catch (e)
                      {
                        if (e.code == 'user-not-found') {
-                         showSnackBar(context,'No user found for that email.');
+                         showSnackBar(context,'No user found for that email.', color: Colors.red);
                        } else if (e.code == 'wrong-password') {
-                         showSnackBar(context, 'Wrong password provided for that user.');
+                         showSnackBar(context, 'Wrong password provided for that user.' , color: Colors.red);
                        }
                      }
                      isAsyncCall=false;
@@ -152,7 +154,33 @@ class _SignInState extends State<SignIn> {
                     ),
                   ],
                 ),
-
+                // RichText(text:  TextSpan(
+                //     children: [
+                //       const TextSpan(
+                //           text: "Don`t have an account ? ",
+                //           style: TextStyle(
+                //             fontSize: 18,
+                //             color: Colors.white,
+                //
+                //           ),
+                //       ),
+                //       TextSpan(
+                //           text:" Register ",
+                //           style: const TextStyle(
+                //             fontSize: 18,
+                //             color: Colors.white,
+                //           ),
+                //           recognizer: TapGestureRecognizer()..onTap =()
+                //           {
+                //             Navigator.push(context,
+                //                 MaterialPageRoute(builder: (context)=>const  SignUp()
+                //                 ),
+                //             );
+                //           }
+                //
+                //       ),
+                //     ]
+                // )),
               ],
             ),
           ),
