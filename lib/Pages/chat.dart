@@ -1,9 +1,11 @@
 import 'package:chat_app/componants/componants.dart';
 import 'package:chat_app/componants/constants.dart';
+import 'package:chat_app/componants/massege_chat.dart';
 import 'package:chat_app/models/message.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
+import '../componants/friend_message_chat.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -55,11 +57,10 @@ class _ChatPageState extends State<ChatPage> {
                           itemBuilder: (context,index)
                           {
                             return messagesList[index].id==email ?
-                            chatMessage(
+                            MessageChat(
                               message:messagesList[index],
-                            ) : chatMessageFriend(
+                            ) : FriendMessageChat(
                               message:messagesList[index],
-                              colorMessage: kMessageColor,
                             );
                           }
                       ),
@@ -110,7 +111,11 @@ class _ChatPageState extends State<ChatPage> {
             }
           else
             {
-              return const Text('Loading.....');
+              return  const Scaffold(
+                body:CircularProgressIndicator(
+                  color: kPrimaryColor,
+                ) ,
+              );
             }
         },
     );

@@ -1,5 +1,3 @@
-import 'package:chat_app/componants/constants.dart';
-import 'package:chat_app/models/message.dart';
 import 'package:flutter/material.dart';
 
 Widget textField({
@@ -95,62 +93,62 @@ Widget elevatedButton({
 }
 
 
-Widget chatMessage({
-  required Message message,
-})
-{
-  return Align(
-    alignment: Alignment.centerLeft,
-    child: Container(
-      margin: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
-      padding: const EdgeInsets.only(left: 17,top: 28,bottom: 28,right: 17),
-      decoration:  const BoxDecoration(
-        color: kPrimaryColor,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-          bottomRight: Radius.circular(30),
-        ),
-      ),
-      child:  Text(
-        message.messages,
-        style: const TextStyle(
-            fontSize: 20,
-            color: Colors.white
-        ),
-      ),
-    ),
-  );
-}
-
-Widget chatMessageFriend({
-  required Message message,
-  Color? colorMessage,
-})
-{
-  return Align(
-    alignment: Alignment.centerRight,
-    child: Container(
-      margin: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
-      padding: const EdgeInsets.only(left: 17,top: 28,bottom: 28,right: 17),
-      decoration:   BoxDecoration(
-        color: colorMessage,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-          bottomLeft: Radius.circular(30),
-        ),
-      ),
-      child:  Text(
-        message.messages,
-        style: const TextStyle(
-            fontSize: 20,
-            color: Colors.white
-        ),
-      ),
-    ),
-  );
-}
+// Widget chatMessage({
+//   required Message message,
+// })
+// {
+//   return Align(
+//     alignment: Alignment.centerLeft,
+//     child: Container(
+//       margin: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
+//       padding: const EdgeInsets.only(left: 17,top: 28,bottom: 28,right: 17),
+//       decoration:  const BoxDecoration(
+//         color: kPrimaryColor,
+//         borderRadius: BorderRadius.only(
+//           topLeft: Radius.circular(30),
+//           topRight: Radius.circular(30),
+//           bottomRight: Radius.circular(30),
+//         ),
+//       ),
+//       child:  Text(
+//         message.messages,
+//         style: const TextStyle(
+//             fontSize: 20,
+//             color: Colors.white
+//         ),
+//       ),
+//     ),
+//   );
+// }
+//
+// Widget chatMessageFriend({
+//   required Message message,
+//   Color? colorMessage,
+// })
+// {
+//   return Align(
+//     alignment: Alignment.centerRight,
+//     child: Container(
+//       margin: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
+//       padding: const EdgeInsets.only(left: 17,top: 28,bottom: 28,right: 17),
+//       decoration:   BoxDecoration(
+//         color: colorMessage,
+//         borderRadius: const BorderRadius.only(
+//           topLeft: Radius.circular(30),
+//           topRight: Radius.circular(30),
+//           bottomLeft: Radius.circular(30),
+//         ),
+//       ),
+//       child:  Text(
+//         message.messages,
+//         style: const TextStyle(
+//             fontSize: 20,
+//             color: Colors.white
+//         ),
+//       ),
+//     ),
+//   );
+// }
 
 Widget textFieldChat({
   Function(String)? onChange,
