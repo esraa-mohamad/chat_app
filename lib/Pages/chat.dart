@@ -85,7 +85,7 @@ class _ChatPageState extends State<ChatPage> {
                             messageController.clear();
                             _controller.animateTo(
                               0,
-                              curve: Curves.easeIn,
+                              curve: Curves.linear,
                               duration: const Duration(milliseconds: 500),
                             );
                           },
